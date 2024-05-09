@@ -1,0 +1,12 @@
+Project structure
+
+- Setup git rep
+- Connect Dockerhub with git
+- clone repo
+
+- Create requirement file
+- Create docker file
+- dockerignore
+- create docker-compose file
+- configure flake8
+- Create django project
