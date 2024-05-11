@@ -10,15 +10,15 @@ COPY ./app /app
 WORKDIR /app
 EXPOSE 8000
 
-ARG DEV=false
+ARG DEV=true
 
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
     /py/bin/pip install -r /temp/requirements.txt && \
-    if [ $DEV = "true" ]; \
-        then /py/bin/pip install -r /temp/requirements.dev.txt ; \
+    if [ "$DEV" = "true" ]; \
+        then /py/bin/pip install flake8 ; \
     fi && \
-    # rm -rf /temp && \
+    rm -rf /temp && \
     adduser \
         --disabled-password \
         --no-create-home \

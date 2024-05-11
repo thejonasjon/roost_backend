@@ -1,11 +1,9 @@
-version: "3.9"
-
 services:
   app:
     build:
       context: .
       args:
-        - DEV=True
+        - DEV=true
     ports:
       - "8000:8000"
     volumes:

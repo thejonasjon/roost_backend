@@ -10,3 +10,4 @@ Project structure
 - create docker-compose file
 - configure flake8
 - Create django project
+- setup database
