@@ -11,3 +11,6 @@ Project structure
 - configure flake8
 - Create django project
 - setup database
+- pyscopg2 with dependency [C, python-dev, libpq-dev, pg_config]
+- add db service to docker compose
+- update settings.py to us postgresql and connenct
