@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-@6#xr4*47c=#m9ajlqjrswv5omk()gt33_@#tthgus-d9q8d%z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -38,9 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Third party
+    'drf_yasg',
+
     # Custom Apps
-    'core',
+    'users',
+    'core'
 ]
+
+AUTH_USER_MODEL = "users.CustomUser"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -70,7 +76,17 @@ TEMPLATES = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+}
+
 WSGI_APPLICATION = 'roost.wsgi.application'
+
+SWAGGER_SETTINGS = {
+    'VALIDATOR_URL': 'http://localhost:8000',
+}
 
 
 # Database

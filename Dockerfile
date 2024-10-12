@@ -13,6 +13,7 @@ EXPOSE 8000
 ARG DEV=true
 
 RUN python -m venv /py && \
+    /py/bin/pip install --upgrade pip setuptools && \
     /py/bin/pip install --upgrade pip && \
     apk add --update --no-cache postgresql-client && \
     apk add --update --no-cache --virtual .temp-build-deps \
@@ -26,9 +27,9 @@ RUN python -m venv /py && \
     adduser \
         --disabled-password \
         --no-create-home \
-        djano-user
+        django-user
 
 ENV PATH="/py/bin:$PATH"
 
-USER djano-user
+USER django-user
 
